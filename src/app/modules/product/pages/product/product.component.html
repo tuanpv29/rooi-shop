@@ -1,1 +1,71 @@
-<p>product works!</p>
+<div class="row">
+  <div class="col-md-3">
+    <div class="card mb-4">
+      <div class="card-header">Danh mục sản phẩm</div>
+      <div class="card-body p-0">
+        <nav class="nav flex-column">
+          <a class="nav-link" href="#">Sản phẩm cửa hàng A</a>
+          <a class="nav-link" href="#">Sản phẩm cửa hàng B</a>
+          <a class="nav-link" href="#">Sản phẩm cửa hàng C</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="card">
+      <div class="card-header">
+        <div class="d-flex flex-row flex-wrap align-items-center">
+          <span>Sản phẩm</span>
+          <span class="flex-grow-1"></span>
+          <div class="form-inline">
+            <label for="sort" class="mr-1">Sắp xếp theo:</label>
+            <select
+              id="sort"
+              class="form-control form-control-sm"
+              [formControl]="sort"
+              (change)="sortProductsByPrice()"
+            >
+              <option value="" selected>Giá</option>
+              <option value="price_low_to_high">Giá: Thấp đến Cao</option>
+              <option value="price_high_to_low">Giá: Cao đến Thấp</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div
+            *ngFor="let product of products"
+            class="col-sm-12 col-md-6 col-lg-4 pb-4"
+          >
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="./assets/images/example-product-image.svg"
+                alt="Product image"
+              />
+              <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <ngb-rating
+                  [(rate)]="product.rating"
+                  [max]="5"
+                  [readonly]="true"
+                ></ngb-rating>
+                <p class="card-text">${{ product.price }}.00</p>
+                <a href="#" class="btn btn-primary">Chọn mua</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer pb-0">
+        <ngb-pagination
+          class="d-flex justify-content-center"
+          [collectionSize]="30"
+          [(page)]="page"
+          [boundaryLinks]="true"
+        ></ngb-pagination>
+      </div>
+    </div>
+  </div>
+</div>
