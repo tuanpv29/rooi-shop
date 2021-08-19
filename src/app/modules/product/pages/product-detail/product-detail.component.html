@@ -1,1 +1,85 @@
-<p>product-detail works!</p>
+<div class="card mb-3">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card-body">
+        <img
+          class="img-fluid"
+          src="./assets/images/example-image.jpeg"
+          alt="Product image"
+        />
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h3>Sản phẩm A</h3>
+        <div class="rating">
+          <ngb-rating
+            [(rate)]="currentRate"
+            [max]="5"
+            [readonly]="true"
+          ></ngb-rating>
+          <span>(66 đánh giá)</span>
+        </div>
+        <hr />
+        <div class="price">
+          <span class="h3">99.000đ</span>
+        </div>
+        <hr />
+        <div class="quality">
+          <div class="form-group form-inline">
+            <label class="mr-2" for="qualityProduct">Số lượng</label>
+            <input
+              class="form-control"
+              type="number"
+              id="qualityProduct"
+              value="1"
+            />
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-outline-primary mr-2">
+            Thêm vào giỏ hàng
+          </button>
+          <button class="btn btn-primary">Mua ngay</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-3">
+  <div class="card-header">Chi tiết sản phẩm</div>
+  <div class="card-body">
+    <h5 class="card-title">Mô tả sản phẩm</h5>
+    <p class="card-text">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla saepe
+      aliquam expedita sed suscipit nisi est facilis in quisquam temporibus
+      beatae assumenda, odio vero similique voluptates totam inventore facere
+      repellendus.
+    </p>
+    <p class="card-text">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio modi ut
+      necessitatibus officiis esse autem, qui dolorum tenetur repellendus nulla
+      officia quidem ab iure excepturi, culpa, blanditiis laudantium? Minus,
+      deserunt?
+    </p>
+    <p class="card-text">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quo repellat
+      ratione corrupti reprehenderit est praesentium quas id at excepturi. Quo
+      repellendus aspernatur asperiores a provident reiciendis unde tempore?
+      Sint!
+    </p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">Đánh giá - nhận xét từ khách hàng</div>
+  <div class="card-body">
+    <p class="card-text">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum a esse
+      vero quam quibusdam at? Odit beatae ipsam suscipit pariatur dolor,
+      asperiores, architecto cumque perspiciatis est, voluptatum eligendi quod
+      officia.
+    </p>
+  </div>
+</div>

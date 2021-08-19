@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PRODUCTS } from '../../../../mock-products';
 import { Product } from '../../models/product.model';
 
@@ -11,11 +12,13 @@ import { Product } from '../../models/product.model';
 export class ProductListComponent implements OnInit {
   public currentPage = 1;
   public products: Product[];
-  public productsOnCurrentPage: Product[];
+  public currentProductList: Product[];
   public numberOfProductsPerPage = 9;
 
   private startProductIndex = 0;
   private endProductIndex = this.numberOfProductsPerPage;
+
+  constructor(private router: Router) {}
 
   public ngOnInit(): void {
     this.renderProductList();
@@ -23,16 +26,16 @@ export class ProductListComponent implements OnInit {
 
   public renderProductList(): void {
     this.products = PRODUCTS;
-    this.showProductsOnCurrentPage();
-  }
-
-  public showProductsOnCurrentPage(): void {
     this.startProductIndex =
       (this.currentPage - 1) * this.numberOfProductsPerPage;
     this.endProductIndex = this.currentPage * this.numberOfProductsPerPage;
-    this.productsOnCurrentPage = this.products.filter(
+    this.currentProductList = this.products.filter(
       (product, index) =>
         this.startProductIndex <= index && index < this.endProductIndex
     );
+  }
+
+  public redirectToProductDetail(): void {
+    this.router.navigate(['/product/detail'])
   }
 }
