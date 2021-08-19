@@ -1,0 +1,14 @@
+#product-options {
+  .list-group-item {
+    margin-bottom: 0;
+    .nav {
+      .nav-link {
+        color: #000;
+      }
+    }
+  }
+}
+
+#card-products:hover {
+  box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+}

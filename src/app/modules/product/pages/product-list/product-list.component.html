@@ -1,0 +1,126 @@
+<div class="row">
+  <div class="col-md-3 order-2 order-md-1">
+    <div class="card">
+      <ul id="product-options" class="list-group list-group-flush">
+        <li class="list-group-item">
+          <h5 class="card-title">Danh mục sản phẩm</h5>
+          <nav class="nav flex-column">
+            <a class="nav-link" href="#">Hải sản</a>
+            <a class="nav-link" href="#">Thịt</a>
+            <a class="nav-link" href="#">Rau củ quả</a>
+            <a class="nav-link" href="#">Trái cây</a>
+          </nav>
+        </li>
+        <li class="list-group-item">
+          <h5 class="card-title">Địa chỉ nhận hàng</h5>
+          <span class="nav-link" href=""
+            >Bạn muốn giao hàng tới đâu? <a href="">Nhập địa chỉ</a></span
+          >
+        </li>
+        <li class="list-group-item">
+          <h5 class="card-title">Dịch vụ</h5>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="defaultCheck1"
+            />
+            <label class="form-check-label" for="defaultCheck1">
+              Giao siêu tốc
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="defaultCheck1"
+            />
+            <label class="form-check-label" for="defaultCheck1">
+              Không giới hạn
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="defaultCheck1"
+            />
+            <label class="form-check-label" for="defaultCheck1">
+              Rẻ hơn hoàn tiền
+            </label>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-9 order-1 order-md-2">
+    <div class="card">
+      <div class="card-header">
+        <div
+          class="
+            d-flex
+            flex-row flex-wrap
+            align-items-center
+            justify-content-between
+          "
+        >
+          <span>Tất cả sản phẩm</span>
+          <div class="form-inline">
+            <label class="mr-2" for="sortProducts">Sắp xếp theo:</label>
+            <select class="form-control form-control-sm" id="sortProducts">
+              <option>Mới nhất</option>
+              <option>Giá từ thấp tới cao</option>
+              <option>Giá từ cao xuống thấp</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div
+            *ngFor="let product of productsOnCurrentPage"
+            class="col-sm-12 col-md-6 col-lg-4"
+          >
+            <div id="card-products" class="card border-0 text-center mb-4">
+              <img
+                class="card-img-top"
+                src="./assets/images/example-image.jpeg"
+                alt="Product image"
+              />
+              <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">
+                  <ngb-rating
+                    [(rate)]="product.rating"
+                    [max]="5"
+                    [readonly]="true"
+                  ></ngb-rating>
+                </p>
+                <p class="card-text font-weight-bold">
+                  ${{ product.price }}.00
+                </p>
+                <a href="#" class="btn btn-outline-primary stretched-link">
+                  Chọn mua
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ngb-pagination
+          class="d-flex justify-content-end"
+          [collectionSize]="products.length"
+          [pageSize]="numberOfProductsPerPage"
+          [(page)]="currentPage"
+          [maxSize]="6"
+          [rotate]="true"
+          [ellipses]="false"
+          [boundaryLinks]="true"
+          (pageChange)="showProductsOnCurrentPage()"
+        ></ngb-pagination>
+      </div>
+    </div>
+  </div>
+</div>
